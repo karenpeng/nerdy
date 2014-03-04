@@ -1,14 +1,22 @@
 var table = [];
+var abc = [8, 3, 56, 324, 2, 4, 7, 43, 1, 4, 65, 13, 68, 3, 48, 34, 57]
 
-function setup() {
-  createGraphics(1200, 600);
-  background(255);
-  smooth();
-
-};
+  function setup() {
+    createGraphics(1200, 600);
+    background(255);
+    smooth();
+    bubbleSort(abc);
+  };
 
 function draw() {
-
+  fill(0);
+  for (var i in hashTable) {
+    var m = 10;
+    for (var j in hashTable[i]) {
+      ellipse(m, j, 10, 10);
+      m += 10;
+    }
+  }
 };
 
 var hashTable = new Object();
@@ -102,8 +110,8 @@ quickSort.partition = function (arr, campfunc, left, right) {
   return index;
 };
 
-var arr = [5, 3, 7, 4, 1, 9, 8, 6, 2];
-quickSort(arr, function (a, b) {
-  return a < b;
-});
-console.log(arr);
+// var arr = [5, 3, 7, 4, 1, 9, 8, 6, 2];
+// quickSort(arr, function (a, b) {
+//   return a < b;
+// });
+// console.log(arr);
