@@ -1,5 +1,5 @@
 var table = [];
-var abc = [8, 3, 56, 324, 2, 4, 7, 43, 1, 4, 65, 13, 68, 3, 48, 34, 57]
+var abc = [5, 3, 2, 6, 9, 10, 1, 4, 8, 7];
 
   function setup() {
     createGraphics(1200, 600);
@@ -9,12 +9,11 @@ var abc = [8, 3, 56, 324, 2, 4, 7, 43, 1, 4, 65, 13, 68, 3, 48, 34, 57]
   };
 
 function draw() {
-  fill(0);
-  for (var i in hashTable) {
-    var m = 10;
-    for (var j in hashTable[i]) {
-      ellipse(m, j, 10, 10);
-      m += 10;
+  for (var elem in hashTable) {
+    var life = hashTable[elem];
+    fill(255 - elem * 25);
+    for (var i = 0; i < life.length; i++) {
+      ellipse(i * 20 + 20, life[i] * 20 + 20, 20, 20);
     }
   }
 };
