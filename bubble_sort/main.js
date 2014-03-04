@@ -1,23 +1,26 @@
 var table = [];
-var abc = [8, 3, 56, 324, 2, 4, 7, 43, 1, 4, 65, 13, 68, 3, 48, 34, 57]
+var abc = [8, 3, 56, 24, 2, 7, 43, 1, 4, 65, 13, 18, 28, 14, 5];
+var def = [4, 7, 43, 1, 9];
 
-  function setup() {
-    createGraphics(1200, 600);
-    background(255);
-    smooth();
-    bubbleSort(abc);
-  };
+function setup() {
+  createGraphics(2200, 600);
+  background(255);
+  smooth();
+  bubbleSort(abc);
+  //bubbleSort(def);
+}
 
 function draw() {
   fill(0);
-  for (var i in hashTable) {
-    var m = 10;
-    for (var j in hashTable[i]) {
-      ellipse(m, j, 10, 10);
-      m += 10;
+  for (var elem in hashTable) {
+    var life = hashTable[elem];
+    //var c = map(elem,);
+    fill(255 - elem * 10);
+    for (var i = 0; i < life.length; i++) {
+      ellipse(i * 20 + 20, life[i] * 20 + 20, 20, 20);
     }
   }
-};
+}
 
 var hashTable = new Object();
 
@@ -30,7 +33,7 @@ hashTable.addValue = function (list) {
     }
     hashTable[key].push(i);
   }
-}
+};
 
 function bubbleSort(arr) {
   var bigger;
