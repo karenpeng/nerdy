@@ -16,6 +16,7 @@ function draw() {
     var life = hashTable[elem];
     //var c = map(elem,);
     fill(255 - elem * 10);
+
     for (var i = 0; i < life.length; i++) {
       ellipse(i * 20 + 20, life[i] * 20 + 20, 20, 20);
     }
