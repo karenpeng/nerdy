@@ -1,4 +1,4 @@
-var w;
+var table = [];
 
 function setup() {
   createGraphics(1200, 600);
@@ -11,11 +11,27 @@ function draw() {
 
 };
 
+var hashTable = new Object();
+
+hashTable.addValue = function (list) {
+  var key;
+  for (var i = 0; i < list.length; i++) {
+    key = list[i];
+    if (!hashTable[key]) {
+      hashTable[key] = [];
+    }
+    hashTable[key].push(i);
+  }
+}
+
 function bubbleSort(arr) {
   var bigger;
   var wat = arr.length;
   while (wat > 0) {
     for (var i = 0; i < wat - 1; i++) {
+
+      hashTable.addValue(arr);
+
       if (arr[i] > arr[i + 1]) {
         bigger = arr[i];
         arr[i] = arr[i + 1];
@@ -23,7 +39,9 @@ function bubbleSort(arr) {
       }
     }
     wat--;
+
   }
+  console.log(hashTable);
   return arr;
 }
 
